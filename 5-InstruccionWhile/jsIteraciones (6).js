@@ -3,24 +3,24 @@ function mostrar()
 
 	var contador=0;
 	var acumulador=0;
+	var num;
 	
 
-
-
-
-
-document.getElementById('suma').value=acumulador;
-document.getElementById('promedio').value=acumulador/5;
-
-while (contador <= 4)
+while (contador < 5)
 {
-	acumulador = prompt("Introduzca un numero");
-	acumulador=parseInt(acumulador);
-	acumulador = acumulador+acumulador;
+	num = parseInt(prompt("Ingrese un numero"));
+	while (isNaN(num))
+	{
+		num=parseInt(prompt("Eso no es un numero. Por favor ingrese un numero."));
+	}
+	acumulador =num+acumulador
 	contador++
 }
 
-alert (acumulador);
+//No la necesito declarar esta variable
+//var promedio = acumulador/5;
 
+document.getElementById("suma").value = acumulador
+document.getElementById("promedio").value = acumulador/5;
 
 }//FIN DE LA FUNCIÓN

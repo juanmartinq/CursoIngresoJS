@@ -1,24 +1,14 @@
 function mostrar()
 {
 
-var sexo = prompt("ingrese f ó m .");
+var sexo = prompt("ingrese f ó m .").toLowerCase();
 
 
-
-document.getElementById('Sexo').value=sexo;
-
-var x =0
-var i = 0
-
-while (sexo == "f" && x==0)
+while (sexo !='f' && sexo !='m')
 {
-    alert ("Femenino")
-    x++
+    sexo = prompt("Error, ingrese 'f o 'm'.").toLowerCase();
 }
-while (sexo=="m" && i==0)
-{
-    alert("Masculino")
-    i++
-}
+
+document.getElementById("Sexo").value = sexo;
 
 }//FIN DE LA FUNCIÓN
