@@ -10,5 +10,90 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
- 	
+    var importeTotal;
+    var importeDescuento; 
+    var importeFinal;
+    var cantidad = parseInt(document.getElementById("Cantidad").value);
+    var modelo = document.getElementById("Marca").value;
+    
+    //Punto A
+    if (cantidad >= 6)
+    {
+        importeTotal = (cantidad * 35);
+        importeDescuento = importeTotal*0.5; 
+        document.getElementById("precioDescuento").value = importeDescuento;
+    }
+
+    //Punto B
+    if (cantidad == 5)
+    {
+        switch (modelo)
+        {
+            case "ArgentinaLuz" :
+                importeTotal = cantidad*35;
+                importeDescuento = importeTotal-(importeTotal*0.4);
+                document.getElementById("precioDescuento").value = importeDescuento;
+                break;
+
+                default :
+
+                importeTotal= cantidad*35;
+                importeDescuento=  importeTotal-(importeTotal*0.3);
+                document.getElementById("precioDescuento").value = importeDescuento;
+        } 
+
+    }
+
+    //Punto C
+    if (cantidad == 4)
+    {
+        switch  (modelo)
+        {
+            case "ArgentinaLuz" :
+            case "FelipeLamparas" :
+                importeTotal= cantidad*35;
+                importeDescuento = importeTotal-(importeTotal*0.25);
+                document.getElementById("precioDescuento").value = importeDescuento;
+                break;
+
+            case "JeLuz" :
+            case "HazIluminacion" :
+            case "Osram" :
+                importeTotal = cantidad*35;
+                importeDescuento = importetotal-(importetotal*0.2);
+                document.getElementById("precioDescuento").value = importeDescuento;
+                break;
+        }
+    }
+     
+    //Punto E   
+    if (cantdad == 3)
+    {
+        switch (modelo)
+        {
+         case "ArgentinaLuz" :
+         importeTotal= cantidad*35;
+         importeDescuento = importetotal-(importeTotal*0.15);
+         document.getElementById("precioDescuento").value = importeDescuento;
+         break;
+
+         case "FelipeLamparas" :
+         importeTotal = cantidad*35;
+         importeDescuento = importetotal-(cantidad*0.10);
+         document.getElementById("precioDescuento").value = importeDescuento;
+         break;
+        
+         default :
+         importeTotal=cantidad*35;
+         importeDescuento=importetotal-(importeTotal*0.05);
+         document.getElementById("precioDescuento").value = importeDescuento;
+        }
+
+    }
+    
+    if (importeDescuento >120)
+    {
+        importeFinal=(importeDescuento*0.10)+importeDescuento;
+        alert ("Usted pago "+importeFinal+" pesos de IIBB");
+    }
 }
